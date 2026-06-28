@@ -12,22 +12,26 @@ Manages multi-server environments (Prod, Dev, Staging)
 
 Integrates with Terraform for infrastructure provisioning
 ```mermaid
-flowchart TB
 
-A[Ansible Control Node] --> B[Inventory File<br>hosts.ini]
-A --> C[Playbook<br>site.yml]
+flowchart LR
 
-B --> D1[Dev Server]
-B --> D2[Staging Server]
-B --> D3[Production Server]
+A[👨‍💻 Developer Machine] --> B[📦 Ansible Control Node]
 
-C --> D1
-C --> D2
-C --> D3
+B --> C[📄 Inventory File<br>hosts.ini]
 
-D1 --> E[Install Nginx + Deploy Files]
-D2 --> E
-D3 --> E
+C --> D[⚙️ Ansible Playbook<br>site.yml]
+
+D --> E[🌐 SSH Connection]
+
+E --> F1[🖥️ Web Server 1<br>Nginx Setup]
+E --> F2[🖥️ Web Server 2<br>Nginx Setup]
+E --> F3[🖥️ Web Server 3<br>Nginx Setup]
+
+F1 --> G[🚀 Deploy Portfolio]
+F2 --> G
+F3 --> G
+
+G --> H[🌍 Live Website Hosted]
 
 ```
 
