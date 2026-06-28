@@ -11,6 +11,25 @@ Deploys static portfolio website files
 Manages multi-server environments (Prod, Dev, Staging)
 
 Integrates with Terraform for infrastructure provisioning
+```mermaid
+flowchart TB
+
+A[Ansible Control Node] --> B[Inventory File<br>hosts.ini]
+A --> C[Playbook<br>site.yml]
+
+B --> D1[Dev Server]
+B --> D2[Staging Server]
+B --> D3[Production Server]
+
+C --> D1
+C --> D2
+C --> D3
+
+D1 --> E[Install Nginx + Deploy Files]
+D2 --> E
+D3 --> E
+
+```
 
 🧰 Tech Used
 
